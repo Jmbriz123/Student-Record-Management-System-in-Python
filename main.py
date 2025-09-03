@@ -7,17 +7,14 @@ def add_student(students):
     students[new_student] = {"score" : new_student_score, "student_id" : new_student_id}
 
 def display_records(students):
-    print("Name\tScore\tStudent ID")
-    print("-"*30)
+    print("\nStudent Records:")
+    print(f"{"Name": <15}{"Score": ^15}{"Student ID": ^15}")
+    print("-"*45)
+
     for i in students:
-        print(i, end="\t")
-        print(students[i]["score"], end='\t')
-        print(students[i]["student_id"])
+        print(f"{i:<15}{students[i]["score"]: ^15}{students[i]["student_id"]:^15}")
+
     
-
-
-
-
 
 def display_menu():
     print("Choose action: ")
@@ -30,15 +27,17 @@ def display_menu():
 
 def main():
     students = {
-        "student1": {"score": 98, "student_id": 202450020},
-        "student2": {"score" : 87 , "student_id": 202450021}
+        "JM": {"score": 98, "student_id": 202450020},
+        "Jemarco": {"score" : 87 , "student_id": 202450021}
     }
-    display_records(students)
-    return
     display_menu()
     choice = input("Enter choice: ")
-    add_student(students)
-    print(students)
+
+    match choice:
+        case 1:
+            add_student()
+        case 2:
+            
 
 main()
 
